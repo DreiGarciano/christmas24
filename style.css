@@ -1,0 +1,183 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://www.transparenttextures.com/patterns/snow.png') repeat, linear-gradient(to bottom, #1e3c72, #2a5298);
+  font-family: 'Arial', sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+.card-wrapper {
+  perspective: 1500px;
+}
+
+.card {
+  width: 350px;
+  height: 500px;
+  transform-style: preserve-3d;
+  transform: rotateY(0);
+  transition: transform 0.8s ease-in-out;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.card-front,
+.card-inside {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.card-front {
+  background: linear-gradient(to bottom, #ff4e50, #f9d423);
+}
+
+.card-inside {
+  background: #ffffff;
+  color: #333;
+  transform: rotateY(180deg);
+  text-align: center;
+  padding: 30px;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.snowflakes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.8;
+  animation: fall 5s linear infinite;
+  color: #fff;
+}
+
+.snowflake:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.snowflake:nth-child(2) {
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.snowflake:nth-child(3) {
+  left: 80%;
+  animation-delay: 4s;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(600px);
+  }
+}
+
+/* Tree Design */
+.tree {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.star {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #fffbe0, #ffea00);
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ffea00, 0 0 30px #ffea00;
+  margin-bottom: 15px;
+}
+
+.branches {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.branch {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 35px solid #228b22;
+  margin-top: -15px;
+}
+
+.branch:nth-child(1) {
+  border-bottom: 40px solid #228b22;
+}
+
+.branch:nth-child(2) {
+  border-bottom: 35px solid #228b22;
+}
+
+.branch:nth-child(3) {
+  border-bottom: 30px solid #228b22;
+}
+
+.trunk {
+  width: 30px;
+  height: 40px;
+  background: #8b4513;
+  margin-top: -5px;
+  border-radius: 5px;
+}
+
+/* Inside Card */
+.card-inside h1 {
+  font-size: 28px;
+  color: #ff4e50;
+  margin-bottom: 10px;
+}
+
+.card-inside p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #c60000;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #9b0000;
+}
